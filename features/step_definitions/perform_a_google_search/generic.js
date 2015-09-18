@@ -1,4 +1,4 @@
-var GoogleWorld = require('../support/world.js');
+var GoogleWorld = require('../../support/world.js');
 
 var genericSteps = function () {
     console.log('Generic Steps Loaded');
@@ -10,7 +10,7 @@ var genericSteps = function () {
 
     this.When('I enter "$string" in the main search field', function(string, callback){
       var inputID = "#lst-ib";
-      this.waitFor(inputID, 3000, function (err, found) {
+      this.waitFor(inputID, 3000, function (err) {
         if (!err) {
           this.setValue(inputID, string);
           return;

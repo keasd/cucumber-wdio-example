@@ -1,4 +1,4 @@
-GoogleWorld = require('../support/world');
+GoogleWorld = require('../../support/world');
 
 var findCapybaraSteps = function () {
   console.log('Find Capybara steps loaded');
