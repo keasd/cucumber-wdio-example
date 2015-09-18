@@ -1,13 +1,14 @@
 Feature: Do a Google Search
-  Using a web browser
+  As a user of the Internet
   I want to perform a Google search
+  So that I can improve my understanding of the world
 
-  Scenario: Google Search
-    Given I visit http://google.com
-    When I enter 'cheese' into 'gbqfq'
-    Then I should see search results
+  Scenario: Find københavns erhversakademi's website
+    Given I am on the homepage
+    When I search for 'KEA'
+    Then I should be displayed a link to KEA's official website.
 
-  Scenario: Google Search
-    Given I visit http://google.com
-    When I enter 'hamburgers' into 'gbqfq'
-    Then I should see search results
+  Scenario: See what a capybara looks like
+    Given I am on the homepage
+    When I enter 'capybara' in the main search field
+    Then I should be prompted some images of a Capybara
