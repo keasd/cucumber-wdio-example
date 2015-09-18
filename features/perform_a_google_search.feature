@@ -1,4 +1,4 @@
-Feature: Do a Google Search
+Feature: Perform a Google Search
   As a user of the Internet
   I want to perform a Google search
   So that I can improve my understanding of the world
