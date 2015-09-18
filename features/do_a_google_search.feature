@@ -5,10 +5,10 @@ Feature: Do a Google Search
 
   Scenario: Find københavns erhversakademi's website
     Given I am on the homepage
-    When I search for 'KEA'
+    When I enter "KEA" in the main search field
     Then I should be displayed a link to KEA's official website.
 
   Scenario: See what a capybara looks like
     Given I am on the homepage
-    When I enter 'capybara' in the main search field
+    When I enter "capybara" in the main search field
     Then I should be prompted some images of a Capybara

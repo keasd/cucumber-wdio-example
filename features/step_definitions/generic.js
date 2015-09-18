@@ -1,26 +1,24 @@
-module.exports = function () {
-    console.log('Generic Steps Loaded');
-    this.World = require('../support/world.js');
+var GoogleWorld = require('../support/world.js');
 
-    /* "<Given> I visit <url>" */
-    this.Given(/^I visit (https?:\/\/.*\..*)$/, function (url, callback) {
-        this.init().url(url, callback);
+var genericSteps = function () {
+    console.log('Generic Steps Loaded');
+    this.World = GoogleWorld;
+
+    this.Given('I am on the homepage', function (callback) {
+      this.init().url("http://google.com", callback);
     });
 
-    /* "<When> I enter <text> into <inputId>" */
-    this.When(/^I enter '(.*)' into '(.*)'$/, function (text, inputId, callback) {
+    this.When('I enter "$string" in the main search field', function(string, callback){
+      var inputID = "#lst-ib";
+      this.waitFor(inputID, 3000, function (err, found) {
+        if (!err) {
+          this.setValue(inputID, string);
+          return;
+        }
 
-        inputId = '#' + inputId;
-
-        this.waitFor(inputId, 3000, function (err, found) {
-
-            if (!err) {
-                this.setValue(inputId, text, callback);
-                return;
-            }
-
-            callback.fail(new Error('Element ' + inputId + ' was not found after 3s'));
-
-        });
+        callback.fail(new Error('Element ' + inputID + ' was not found after 3s'));
+      });
     });
 };
+
+module.exports = genericSteps;

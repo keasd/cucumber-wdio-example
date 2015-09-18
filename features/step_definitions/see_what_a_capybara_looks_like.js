@@ -1,13 +1,13 @@
-module.exports = function () {
-  console.log('Find KEA steps loaded');
-  this.World = require('../support/world');
-  this.When(/^I enter 'capybara' in the main search field$/, function (callback) {
-    // Write code here that turns the phrase above into concrete actions
-    callback.pending();
-  });
+GoogleWorld = require('../support/world');
 
-  this.Then(/^I should be prompted some images of a Capybara$/, function (callback) {
+var findCapybaraSteps = function () {
+  console.log('Find Capybara steps loaded');
+  this.World = GoogleWorld;
+
+  this.Then("I should be prompted some images of a Capybara", function (callback) {
     // Write code here that turns the phrase above into concrete actions
     callback.pending();
   });
 }
+
+module.exports = findCapybaraSteps;
